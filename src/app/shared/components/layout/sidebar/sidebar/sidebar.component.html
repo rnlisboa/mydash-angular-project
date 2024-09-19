@@ -1,0 +1,21 @@
+<aside [ngClass]="{'w-[345px]': sidebarOpen, 'w-[70px]': !sidebarOpen}"
+    class="h-screen bg-[#6261B4] transition-all duration-300 ease-in-out">
+    <header-sidebar [sidebarOpen]="sidebarOpen" (toggle)="toggleSidebar()"></header-sidebar>
+    <div class="sidebar-content">
+        <div>
+            <a routerLink="/dashboard" routerLinkActive="active-link">
+                <div [ngClass]="{'font-bold': isActive, '': !isActive}" class="control-layout flex items-center justify-start gap-3 text-lg ">
+                    <img src="assets/icons/table-layout.svg" alt="table-layout-icon">
+                    <span class="text-white capitalize">dashboard</span>
+                </div>
+            </a>
+
+            <a routerLink="/tasks" routerLinkActive="active-link">
+                <div [ngClass]="{'font-bold': isActive, '': !isActive}" class="control-layout flex items-center justify-start gap-3 text-lg ">
+                    <img src="assets/icons/list-timeline.svg" alt="timeline-icon">
+                    <span class="text-white capitalize">tarefas</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</aside>
