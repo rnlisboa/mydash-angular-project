@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './components/layout/header/header.component'; // Ajuste o caminho conforme necessário
+import { LucideAngularModule, Menu,  } from 'lucide-angular'
+import { HeaderComponent } from './components/layout/header/header.component'; 
+import { SidebarPrincipal } from './components/layout/sidebar/sidebar/sidebar.component';
+import { HeaderSidebar } from './components/layout/sidebar/header/header.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent // Declare o HeaderComponent aqui
+    HeaderComponent ,
+    SidebarPrincipal,
+    HeaderSidebar
   ],
   imports: [
-    CommonModule // Importar o CommonModule para usar diretivas comuns como *ngIf e *ngFor
+    CommonModule,
+    LucideAngularModule.pick({Menu})
   ],
   exports: [
-    HeaderComponent // Exporte o HeaderComponent para torná-lo acessível em outros módulos
+    HeaderComponent,
+    SidebarPrincipal
   ]
 })
 export class SharedModule {}
