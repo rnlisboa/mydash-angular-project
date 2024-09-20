@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Dashboard } from './dashboard/dashboard.component';
 import { Task } from './task/task.component';
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -9,9 +10,9 @@ import { Task } from './task/task.component';
     Task
   ],
   imports: [
-    CommonModule
-   
-  ],
+    CommonModule,
+    SharedModule
+],
   exports: [
     Dashboard,
     Task
