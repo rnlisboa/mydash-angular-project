@@ -1,4 +1,4 @@
-<section>
+<section class="h-screen bg-[#F5F5F5]">
     <top-page />
     <header-layout [title]="'Olá, fábio'">
         <div slot-one>
@@ -6,9 +6,9 @@
         </div>
     </header-layout>
 
-    <!-- CARD DE QTD TAREFAS -->
-    <div class="task-indicator w-full flex items-center justify-around mt-8 h-auto flex-wrap">
-        <div class="todo w-[330px] h-[140px] flex items-center justify-around">
+  <div class="flex flex-col items-center justify-center px-[30px]">
+    <div class="task-indicator w-full flex items-center justify-between mt-8 h-auto flex-wrap ">
+        <div class="todo w-[330px] h-[140px] flex items-center justify-around bg-white rounded-[10px]">
             <div class="indicator">
                 <div class="n-todo text-[34px] font-bold">
                     4
@@ -21,7 +21,7 @@
                 <img src="assets/icons/loading 1.svg" alt="">
             </div>
         </div>
-        <div class="todo w-[330px] h-[140px] flex items-center justify-around">
+        <div class="todo w-[330px] h-[140px] flex items-center justify-around bg-white rounded-[10px]">
             <div class="indicator">
                 <div class="n-todo text-[34px] font-bold">
                     2
@@ -34,7 +34,7 @@
                 <img src="assets/icons/square-terminal 1.svg" alt="">
             </div>
         </div>
-        <div class="todo w-[330px] h-[140px] flex items-center justify-around">
+        <div class="todo w-[330px] h-[140px] flex items-center justify-around bg-white rounded-[10px]">
             <div class="indicator">
                 <div class="n-todo text-[34px] font-bold">
                     64
@@ -51,7 +51,25 @@
 
     <!-- TAREFAS POR DIA -->
 
-    <div class="">
-        <h1 class="font-bold w-full px-10"># Tarefas concluídas por dia</h1>
+    <div class="p-10 mt-6 bg-white w-[100%] rounded-[10px]">
+        <h1 class="font-bold w-full"># Tarefas concluídas por dia</h1>
+        <div class="mt-4 mb-4 float-right flex justify-evenly items-center h-[52px] w-[217px] border border-[#E8EEF0] rounded-[10px]">
+            <span>Últimos 15 dias</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-calendar">
+                <path d="M8 2v4" />
+                <path d="M16 2v4" />
+                <rect width="18" height="18" x="3" y="4" rx="2" />
+                <path d="M3 10h18" />
+            </svg>
+            
+        </div>
+        <div class="w-full h-[467px]">
+            <chart-line />
+        </div>
     </div>
+
+  </div>
+
 </section>

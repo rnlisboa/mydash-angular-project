@@ -4,7 +4,7 @@
     <div class="sidebar-content flex justify-center flex-col gap-y-3 items-center">
         <a (click)="router.navigate(['/dashboard'])" class="cursor-pointer mt-12" routerLinkActive="active-link">
             <div [ngClass]="{'font-bold bg-[#f4f4f408]': isActive('/dashboard')}"
-                class="control-layout flex items-center justify-start gap-3 text-lg  w-[313px] h-[56px] rounded-[10px]">
+                class="control-layout flex items-center justify-start gap-3 text-lg  w-[313px] h-[56px] rounded-[10px]  px-4">
                 <img src="assets/icons/table-layout.svg" alt="table-layout-icon">
                 <span class="text-white capitalize">dashboard</span>
             </div>
@@ -13,7 +13,7 @@
         <a (click)="router.navigate(['/tasks'])" class="cursor-pointer w-[313px] h-[56px]"
             routerLinkActive="active-link">
             <div [ngClass]="{'font-bold bg-[#f4f4f408]': isActive('/tasks')}"
-                class="control-layout flex items-center justify-start gap-3 text-lg  w-[313px] h-[56px] rounded-[10px]">
+                class="control-layout flex items-center justify-start gap-3 text-lg  w-[313px] h-[56px] rounded-[10px] px-4">
                 <img src="assets/icons/list-timeline.svg" alt="timeline-icon">
                 <span class="text-white capitalize">tarefas</span>
             </div>
