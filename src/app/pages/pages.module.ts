@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Dashboard } from './dashboard/dashboard.component';
 import { Task } from './task/task.component';
 import { SharedModule } from "../shared/shared.module";
+import { ChartLine } from "../shared/components/dashboard/chart/chat.component";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { SharedModule } from "../shared/shared.module";
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ChartLine
 ],
   exports: [
     Dashboard,
