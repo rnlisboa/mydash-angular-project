@@ -1,21 +1,22 @@
 <aside [ngClass]="{'w-[345px]': sidebarOpen, 'w-[70px]': !sidebarOpen}"
     class="h-screen bg-[#6261B4] transition-all duration-300 ease-in-out">
     <header-sidebar [sidebarOpen]="sidebarOpen" (toggle)="toggleSidebar()"></header-sidebar>
-    <div class="sidebar-content">
-        <div>
-            <a routerLink="/dashboard" routerLinkActive="active-link">
-                <div [ngClass]="{'font-bold': isActive, '': !isActive}" class="control-layout flex items-center justify-start gap-3 text-lg ">
-                    <img src="assets/icons/table-layout.svg" alt="table-layout-icon">
-                    <span class="text-white capitalize">dashboard</span>
-                </div>
-            </a>
+    <div class="sidebar-content flex justify-center flex-col gap-y-3 items-center">
+        <a (click)="router.navigate(['/dashboard'])" class="cursor-pointer mt-12" routerLinkActive="active-link">
+            <div [ngClass]="{'font-bold bg-[#f4f4f408]': isActive('/dashboard')}"
+                class="control-layout flex items-center justify-start gap-3 text-lg  w-[313px] h-[56px] rounded-[10px]">
+                <img src="assets/icons/table-layout.svg" alt="table-layout-icon">
+                <span class="text-white capitalize">dashboard</span>
+            </div>
+        </a>
 
-            <a routerLink="/tasks" routerLinkActive="active-link">
-                <div [ngClass]="{'font-bold': isActive, '': !isActive}" class="control-layout flex items-center justify-start gap-3 text-lg ">
-                    <img src="assets/icons/list-timeline.svg" alt="timeline-icon">
-                    <span class="text-white capitalize">tarefas</span>
-                </div>
-            </a>
-        </div>
+        <a (click)="router.navigate(['/tasks'])" class="cursor-pointer w-[313px] h-[56px]"
+            routerLinkActive="active-link">
+            <div [ngClass]="{'font-bold bg-[#f4f4f408]': isActive('/tasks')}"
+                class="control-layout flex items-center justify-start gap-3 text-lg  w-[313px] h-[56px] rounded-[10px]">
+                <img src="assets/icons/list-timeline.svg" alt="timeline-icon">
+                <span class="text-white capitalize">tarefas</span>
+            </div>
+        </a>
     </div>
 </aside>

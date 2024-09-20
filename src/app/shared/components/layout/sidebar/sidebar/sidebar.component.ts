@@ -5,10 +5,14 @@ import { Router } from "@angular/router";
     selector: 'sidebar-principal',
     templateUrl: './sidebar.component.html'
 })
-export class SidebarPrincipal {
+export class SidebarPrincipal implements OnInit {
     sidebarOpen = true;
 
-    constructor(private router: Router) { }
+    constructor(public router: Router) { }
+
+    ngOnInit(): void {
+        console.log(this.router)
+    }
 
     isActive(route: string): boolean {
         console.log(this.router.url)
