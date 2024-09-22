@@ -4,6 +4,7 @@ import { LucideAngularModule, Home, Menu } from 'lucide-angular';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { PagesModule } from './pages/pages.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -12,8 +13,11 @@ import { PagesModule } from './pages/pages.module';
         BrowserModule,
         RouterModule.forRoot(routes),
         PagesModule,
-        LucideAngularModule.pick({ Home, Menu })
+        LucideAngularModule.pick({ Home, Menu }),
+        HttpClientModule
     ],
-    providers: []
+    providers: [
+      
+    ]
 })
 export class AppModule { }
