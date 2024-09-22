@@ -4,6 +4,6 @@ import { Task } from './pages/task/task.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-    { path: 'dashboard', component: Dashboard },
-    { path: 'tasks', component: Task },
+    { path: 'dashboard', component: Dashboard, data: {breadcrumb: 'dashboard'} },
+    { path: 'tasks', component: Task, data: {breadcrumb: 'tasks'} },
 ];
