@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { ModalStateService } from "../../../../core/services/state/state-modal.service";
 
 @Component({
     selector: 'header-layout',
@@ -6,4 +7,11 @@ import { Component, Input, OnInit } from "@angular/core";
 })
 export class HeaderLayout {
     @Input() title!: string;
+
+    constructor(private modalStateService: ModalStateService) { }
+
+    openTaskModal() {
+        this.modalStateService.openModal();
+    }
+
 }
