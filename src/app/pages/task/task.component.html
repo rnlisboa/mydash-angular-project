@@ -1,3 +1,70 @@
-<div>
-    jkdkjd
-</div>
+<section class="relative bg-[#F5F5F5] h-[100%]">
+    <top-page />
+    <header-layout [title]="'Tarefas'">
+        <div slot-one>
+            Dashboard > Tarefas
+        </div>
+    </header-layout>
+
+    <div class="w-full p-10">
+        <div class=" mt-6 bg-white w-[100%] rounded-[10px]">
+            <header class="w-full flex items-center justify-end gap-2">
+                <button-selector>
+                    <div slot-one>
+                        <span>Projetos</span>
+                    </div>
+                    <div slot-two>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-chevron-down">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </div>
+                </button-selector>
+                <button-selector>
+                    <div slot-one>
+                        <span>Status</span>
+                    </div>
+                    <div slot-two>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-chevron-down">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </div>
+                </button-selector>
+                <button-selector>
+                    <div slot-one>
+                        <span>Todas Prioridades</span>
+                    </div>
+                    <div slot-two>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-chevron-down">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </div>
+                </button-selector>
+                <button-selector>
+                    <div slot-one>
+                        <span>Últimos 30 dias</span>
+                    </div>
+                    <div slot-two>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-calendar">
+                            <path d="M8 2v4" />
+                            <path d="M16 2v4" />
+                            <rect width="18" height="18" x="3" y="4" rx="2" />
+                            <path d="M3 10h18" />
+                        </svg>
+                    </div>
+                </button-selector>
+            </header>
+            <div>
+                <app-datatable/>
+            </div>
+        </div>
+    </div>
+    <modal/>
+</section>
