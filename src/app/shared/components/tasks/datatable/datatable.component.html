@@ -47,18 +47,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let tarefa of tarefas" class="border-t">
-                <td class="px-4 py-2">{{ tarefa.nome }}</td>
+            <tr *ngFor="let tarefa of taskList" class="border-t">
+                <td class="px-4 py-2">{{ tarefa.title }}</td>
                 <td class="px-4 py-2 text-white">
                     <span
-                        [ngClass]="{'bg-[#FF1414] text-white': tarefa.prioridade === 'Alta', 'bg-[#FFA16C] text-white': tarefa.prioridade === 'Med', 'bg-[#14B9FF] text-white': tarefa.prioridade === 'Baixa'}"
+                        [ngClass]="{'bg-[#FF1414] text-white': tarefa.priority === 'Alta', 'bg-[#FFA16C] text-white': tarefa.priority === 'Média', 'bg-[#14B9FF] text-white': tarefa.priority === 'Baixa'}"
                         class="rounded-full px-2 py-1 text-sm">
-                        {{ tarefa.prioridade }}
+                        {{ tarefa.priority }}
                     </span>
                 </td>
-                <td class="px-4 py-2">{{ tarefa.projeto }}</td>
-                <td class="px-4 py-2">{{ tarefa.status }}</td>
-                <td class="px-4 py-2">{{ tarefa.responsavel }}</td>
+                <td class="px-4 py-2"> - </td>
+                <td class="px-4 py-2"> {{tarefa.finished ? 'Concluído': 'Em andamento'}} </td>
+                <td class="px-4 py-2">{{ tarefa.responsible[0].name }}</td>
                 <td class="px-4 py-2">{{ tarefa.deadline }}</td>
                 <td class="px-4 py-2 text-center flex justify-around">
                     <button class="text-red-500">

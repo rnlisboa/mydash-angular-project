@@ -1,10 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {TaskService } from '../../../../core/services/api/tasks.service';
+import { TaskModel } from '../../../../core/services/api/model/task.model';
 
 @Component({
   selector: 'app-datatable',
   templateUrl: './datatable.component.html'
 })
-export class DatatableComponent {
+export class DatatableComponent implements OnInit{
+  taskList!: TaskModel[];
+
+  constructor(private service: TaskService){
+
+  }
+  ngOnInit(): void {
+    try{
+
+      this.loadTaskList()
+    } catch(e){
+      console.log(e)
+    }
+  }
+
+  loadTaskList(){
+    this.service.getAll().subscribe(((tasks)=>{
+      this.taskList = tasks;
+    }))
+  }
   tarefas = [
     {
       nome: 'Adjust concentrates to behaviour and standards',
