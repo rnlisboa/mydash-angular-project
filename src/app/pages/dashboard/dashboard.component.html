@@ -27,7 +27,7 @@
             <div class="todo w-[330px] h-[140px] flex items-center justify-around bg-white rounded-[10px]">
                 <div class="indicator">
                     <div class="n-todo text-[34px] font-bold">
-                        4
+                        {{todoTask}}
                     </div>
                     <span class="font-bold">
                         to do
@@ -39,8 +39,16 @@
             </div>
             <div class="todo w-[330px] h-[140px] flex items-center justify-around bg-white rounded-[10px]">
                 <div class="indicator">
-                    <div class="n-todo text-[34px] font-bold">
-                        2
+                    <div class="n-todo ">
+                        <span class="text-[34px] font-bold relative">
+                            {{ doingTask }}
+                            <span *ngIf="lateTask > 0" class="absolute top-3 right-1 h-[10px] w-[10px] bg-[#FF1414] rounded-full"></span>
+                        </span>
+                        
+                        <span *ngIf="lateTask > 0">
+                            {{ lateTask }} {{ lateTask === 1 ? 'tarefa' : 'tarefas' }} em atraso!
+                        </span>
+                        
                     </div>
                     <span class="font-bold">
                         doing
@@ -53,7 +61,7 @@
             <div class="todo w-[330px] h-[140px] flex items-center justify-around bg-white rounded-[10px]">
                 <div class="indicator">
                     <div class="n-todo text-[34px] font-bold">
-                        64
+                        {{doneTask}}
                     </div>
                     <span class="font-bold">
                         done

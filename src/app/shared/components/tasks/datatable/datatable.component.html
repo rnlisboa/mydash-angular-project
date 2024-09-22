@@ -1,65 +1,64 @@
-<style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-</style>
-
 <div class="overflow-x-auto">
     <table class="min-w-full table-auto border-collapse border border-gray-300">
-        <thead class="border border-b-3">
+        <thead class="border-b-3">
             <tr>
-                <th class="px-4 py-2 text-left cursor-pointer">Tarefa
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="inline-block ml-1">
-                        <path d="m21 16-4 4-4-4" />
-                        <path d="M17 20V4" />
-                        <path d="m3 8 4-4 4 4" />
-                        <path d="M7 4v16" />
-                    </svg>
+                <th (click)="sortListByTitle()" class="px-4 py-2 text-left cursor-pointer flex text-[#797B7C] items-center gap-1">
+                    <span>Tarefa</span>
+                    <span>
+                        <img src="assets/icons/sort 1.svg" alt="" />
+                    </span>
                 </th>
-                <th class="px-4 py-2 text-left cursor-pointer">Prior.
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="inline-block ml-1">
-                        <path d="m21 16-4 4-4-4" />
-                        <path d="M17 20V4" />
-                        <path d="m3 8 4-4 4 4" />
-                        <path d="M7 4v16" />
-                    </svg>
+                <th class="px-4 py-2 text-left cursor-pointer ">
+                    <div class="flex text-[#797B7C] items-center gap-1">
+                        <span>Prior.</span>
+                        <span>
+                            <img src="assets/icons/sort 1.svg" alt="" />
+                        </span>
+                    </div>
                 </th>
-                <th class="px-4 py-2 text-left cursor-pointer">Projeto
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="inline-block ml-1">
-                        <path d="m21 16-4 4-4-4" />
-                        <path d="M17 20V4" />
-                        <path d="m3 8 4-4 4 4" />
-                        <path d="M7 4v16" />
-                    </svg>
+                <th class="px-4 py-2 text-left">
+                    <div class="flex text-[#797B7C] items-center gap-1">
+                        <span>Status</span>
+                        <span>
+                            <img src="assets/icons/sort 1.svg" alt="" />
+                        </span>
+                    </div>
                 </th>
-                <th class="px-4 py-2 text-left">Status</th>
-                <th class="px-4 py-2 text-left">Respons.</th>
-                <th class="px-4 py-2 text-left cursor-pointer">Deadline
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="inline-block ml-1">
-                        <path d="m21 16-4 4-4-4" />
-                        <path d="M17 20V4" />
-                        <path d="m3 8 4-4 4 4" />
-                        <path d="M7 4v16" />
-                    </svg>
+                <th class="px-4 py-2 text-left">
+                    <div class="flex text-[#797B7C] items-center gap-1">
+                        <span>Respons.</span>
+                        <span>
+                            <img src="assets/icons/sort 1.svg" alt="" />
+                        </span>
+                    </div>
                 </th>
-                <th class="px-4 py-2 text-center">Ações</th>
+                <th (click)="sortListByDate()" class="px-4 py-2 text-left cursor-pointer">
+                    <div class="flex text-[#797B7C] items-center gap-1">
+                        <span>Deadline</span>
+                        <span>
+                            <img src="assets/icons/sort 1.svg" alt="" />
+                        </span>
+                    </div>
+                </th>
+                <th class="px-4 py-2 text-center text-[#797B7C] ">Ações</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let tarefa of taskList" class="border-t">
+            <tr *ngFor="let tarefa of paginatedTasks" class="border-t">
                 <td class="px-4 py-2">{{ tarefa.title }}</td>
-                <td class="px-4 py-2 text-white">
-                    <span
-                        [ngClass]="{'bg-[#FF1414] text-white': tarefa.priority === 'Alta', 'bg-[#FFA16C] text-white': tarefa.priority === 'Média', 'bg-[#14B9FF] text-white': tarefa.priority === 'Baixa'}"
-                        class="rounded-full px-2 py-1 text-sm">
+                <td class="px-4 py-2 text-white ">
+                    <span [ngClass]="{
+                            'bg-[#FF1414] text-': tarefa.priority === 'Alta',
+                            'bg-[#FFA16C] text-white': tarefa.priority === 'Média',
+                            'bg-[#14B9FF] text-white': tarefa.priority === 'Baixa'
+                        }" class="rounded-full px-2 py-1 text-sm">
                         {{ tarefa.priority }}
                     </span>
                 </td>
-                <td class="px-4 py-2"> - </td>
-                <td class="px-4 py-2"> {{tarefa.finished ? 'Concluído': 'Em andamento'}} </td>
+                <td class="px-4 py-2">{{ tarefa.finished ? 'Concluído' : 'Em andamento' }}</td>
                 <td class="px-4 py-2">{{ tarefa.responsible[0].name }}</td>
-                <td class="px-4 py-2">{{ tarefa.deadline }}</td>
+                <td class="px-4 py-2">{{ tarefa.deadline | date: 'dd/MM/yyyy' }}</td>
+                <td class="px-4 py-2 text-center flex justify-around">
                 <td class="px-4 py-2 text-center flex justify-around">
                     <button class="text-red-500">
                         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
@@ -90,7 +89,29 @@
                         </svg>
                     </button>
                 </td>
+
             </tr>
         </tbody>
     </table>
+
+    <div class="flex mt-4 justify-center items-center gap-3">
+        <button (click)="goToPreviousPage()" [disabled]="currentPage === 1" class="px-4 py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-chevron-left">
+                <path d="m15 18-6-6 6-6" />
+            </svg>
+        </button>
+
+        <span class="text-gray-600">Página {{ currentPage }} de {{ Math.ceil(taskList.length / itemsPerPage) }}</span>
+
+        <button (click)="goToNextPage()" [disabled]="currentPage === Math.ceil(taskList.length / itemsPerPage)"
+            class="px-4 py-2 ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-chevron-right">
+                <path d="m9 18 6-6-6-6" />
+            </svg>
+        </button>
+    </div>
 </div>

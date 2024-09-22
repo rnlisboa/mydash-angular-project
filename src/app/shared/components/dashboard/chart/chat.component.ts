@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartModule } from "primeng/chart"
+import { TaskService } from '../../../../core/services/api/tasks.service';
+import { TaskModel } from '../../../../core/services/api/model/task.model';
 @Component({
     selector: 'chart-line',
     templateUrl: './chat.component.html',
@@ -11,24 +13,19 @@ export class ChartLine implements OnInit {
 
     options: any;
 
+    taskList!: TaskModel[];
+
+    constructor(private service: TaskService) {
+
+    }
+
     ngOnInit() {
+        this.loadTaskList();
+
         const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');
         const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
         const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-        this.data = {
-            labels: this.getLast15Days(),
-            datasets: [
-                {
-                    label: 'Quark clinic',
-                    data: this.getRandomNumbersArray(),
-                    fill: false,
-                    borderColor: '#4AD894',
-                    tension: 0.4,
-                    
-                }
-            ]
-        };
 
         this.options = {
             maintainAspectRatio: false,
@@ -63,31 +60,54 @@ export class ChartLine implements OnInit {
         };
     }
 
-    getLast15Days() {
-        const dates = [];
-        const today = new Date();
+    loadTaskList() {
+        this.service.getAll().subscribe((tasks) => {
+            this.taskList = tasks;
+    
+            const sortedList = this.sortTaskListByDate(this.taskList);
+    
+            const completedTasksByDay = this.getCompletedTasksByDay(sortedList);
+    
+            this.data = {
+                labels: Object.keys(completedTasksByDay),
+                datasets: [
+                    {
+                        label: 'Tarefas Concluídas',
+                        data: Object.values(completedTasksByDay).map(tasks => tasks.length),
+                        fill: false,
+                        borderColor: '#4AD894',
+                        tension: 0.4,
+                    }
+                ]
+            };
+    
+        });
+    }
+    
+    getCompletedTasksByDay(tasks: TaskModel[]): { [key: string]: TaskModel[] } {
+        return tasks.reduce((acc, task) => {
+            const taskDate = new Date(task.deadline);
+            const formattedDate = `${String(taskDate.getDate()).padStart(2, '0')}/${String(taskDate.getMonth() + 1).padStart(2, '0')}`;
+    
+            if (task.finished) {
+                if (!acc[formattedDate]) {
+                    acc[formattedDate] = [];
+                }
+                acc[formattedDate].push(task);
+            }
+            return acc;
+        }, {} as { [key: string]: TaskModel[] });
+    }
+    
 
-        for (let i = 0; i < 15; i++) {
-            const currentDate = new Date();
-            currentDate.setDate(today.getDate() - i);
+    sortTaskListByDate(taskList: TaskModel[]): TaskModel[] {
+        taskList.sort((a, b) => {
+            const dateA = new Date(a.deadline).getTime();
+            const dateB = new Date(b.deadline).getTime();
 
-            const day = String(currentDate.getDate()).padStart(2, '0');
-            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-
-            dates.push(`${day}/${month}`);
-        }
-
-        return dates.reverse();
+            return dateA - dateB;
+        });
+        return taskList
     }
 
-    getRandomNumbersArray() {
-        const numbers = [];
-
-        for (let i = 0; i < 15; i++) {
-            const randomNum = Math.floor(Math.random() * 7);
-            numbers.push(randomNum);
-        }
-
-        return numbers;
-    }
 }

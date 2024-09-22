@@ -1,63 +1,81 @@
 import { Component, OnInit } from '@angular/core';
-import {TaskService } from '../../../../core/services/api/tasks.service';
+import { TaskService } from '../../../../core/services/api/tasks.service';
 import { TaskModel } from '../../../../core/services/api/model/task.model';
 
 @Component({
   selector: 'app-datatable',
   templateUrl: './datatable.component.html'
 })
-export class DatatableComponent implements OnInit{
+export class DatatableComponent implements OnInit {
   taskList!: TaskModel[];
+  paginatedTasks!: TaskModel[];
+  currentPage: number = 1;
+  itemsPerPage: number = 5;
+  isTitleSortedAsc: boolean = true; // Variável para controlar a ordenação
+  Math = Math;
 
-  constructor(private service: TaskService){
+  constructor(private service: TaskService) {}
 
-  }
   ngOnInit(): void {
-    try{
-
-      this.loadTaskList()
-    } catch(e){
-      console.log(e)
+    try {
+      this.loadTaskList();
+    } catch (e) {
+      console.log(e);
     }
   }
 
-  loadTaskList(){
-    this.service.getAll().subscribe(((tasks)=>{
+  loadTaskList() {
+    this.service.getAll().subscribe((tasks) => {
       this.taskList = tasks;
-    }))
+      this.updatePaginatedTasks();
+    });
   }
-  tarefas = [
-    {
-      nome: 'Adjust concentrates to behaviour and standards',
-      prioridade: 'Alta',
-      projeto: 'Gateway of Pacific',
-      status: 'Concluído',
-      responsavel: 'Miles, Esther',
-      deadline: 'Wed 11 Aug'
-    },
-    {
-      nome: 'Initiation/Planning Activities Completed',
-      prioridade: 'Med',
-      projeto: 'Renoir Hotel Fire',
-      status: 'Concluído',
-      responsavel: 'Miles, Esther',
-      deadline: 'Wed 11 Aug'
-    },
-    {
-      nome: 'Requirements Analysis Completed',
-      prioridade: 'Baixa',
-      projeto: 'Grand Hyatt Union Square',
-      status: 'Concluído',
-      responsavel: 'Miles, Esther',
-      deadline: 'Wed 11 Aug'
-    },
-    {
-      nome: 'Security Planning',
-      prioridade: 'Alta',
-      projeto: '801 Brannan',
-      status: 'Concluído',
-      responsavel: 'Miles, Esther',
-      deadline: 'Wed 11 Aug'
+
+  updatePaginatedTasks() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.paginatedTasks = this.taskList.slice(startIndex, endIndex);
+  }
+
+  goToNextPage() {
+    if (this.currentPage < Math.ceil(this.taskList.length / this.itemsPerPage)) {
+      this.currentPage++;
+      this.updatePaginatedTasks();
     }
-  ];
+  }
+
+  goToPreviousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updatePaginatedTasks();
+    }
+  }
+
+  sortListByTitle(): void {
+ 
+    this.isTitleSortedAsc = !this.isTitleSortedAsc;
+
+    this.taskList.sort((a, b) => {
+      if (a.title > b.title) return this.isTitleSortedAsc ? 1 : -1;
+      if (a.title < b.title) return this.isTitleSortedAsc ? -1 : 1;
+      return 0;
+    });
+
+ 
+    this.updatePaginatedTasks();
+  }
+
+  sortListByDate(): void {
+ 
+    this.isTitleSortedAsc = !this.isTitleSortedAsc;
+
+    this.taskList.sort((a, b) => {
+      if (a.deadline > b.deadline) return this.isTitleSortedAsc ? 1 : -1;
+      if (a.deadline < b.deadline) return this.isTitleSortedAsc ? -1 : 1;
+      return 0;
+    });
+
+ 
+    this.updatePaginatedTasks();
+  }
 }

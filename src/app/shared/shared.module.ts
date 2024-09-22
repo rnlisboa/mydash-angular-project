@@ -10,8 +10,9 @@ import { BreadcrumbComponent } from './components/layout/breadcrumb/breadcrumb.c
 import { RouterModule } from '@angular/router';
 import { ButtonSelectorComponent } from './components/layout/button/button.component';
 import { DatatableComponent } from './components/tasks/datatable/datatable.component';
-import { DialogModule } from 'primeng/dialog';
+
 import { ModalComponent } from './components/layout/modal/modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { ModalComponent } from './components/layout/modal/modal.component';
   imports: [
     CommonModule,
     RouterModule,
-    
+    ReactiveFormsModule,
     LucideAngularModule.pick({Menu, LayoutList, LayoutDashboardIcon, Search})
   ],
   exports: [
