@@ -1,0 +1,292 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "João",
+            "lastname": "Silva",
+            "email": "joao.silva@example.com",
+            "password": "senha123",
+            "avatar": "https://example.com/avatars/joao.png"
+        },
+        {
+            "id": 2,
+            "name": "Maria",
+            "lastname": "Oliveira",
+            "email": "maria.oliveira@example.com",
+            "password": "senha456",
+            "avatar": "https://example.com/avatars/maria.png"
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "title": "Preparar relatório financeiro",
+            "detail": "Elaborar um relatório sobre as finanças do último trimestre.",
+            "deadline": "2024-09-30T17:00:00Z",
+            "responsible": [
+                {
+                    "id": 1,
+                    "name": "João",
+                    "lastname": "Silva"
+                }
+            ],
+            "priority": "Alta",
+            "finished": false
+        },
+        {
+            "id": 2,
+            "title": "Organizar reunião de equipe",
+            "detail": "Agendar e organizar uma reunião para discutir o andamento dos projetos.",
+            "deadline": "2024-09-25T10:00:00Z",
+            "responsible": [
+                {
+                    "id": 2,
+                    "name": "Maria",
+                    "lastname": "Oliveira"
+                }
+            ],
+            "priority": "Média",
+            "finished": false
+        },
+        {
+            "id": 3,
+            "title": "Revisar documento de propostas",
+            "detail": "Revisar e editar o documento de propostas para o novo cliente.",
+            "deadline": "2024-09-28T16:00:00Z",
+            "responsible": [
+                {
+                    "id": 1,
+                    "name": "João",
+                    "lastname": "Silva"
+                }
+            ],
+            "priority": "Alta",
+            "finished": false
+        },
+        {
+            "id": 4,
+            "title": "Atualizar site da empresa",
+            "detail": "Fazer as atualizações necessárias no site corporativo.",
+            "deadline": "2024-10-05T14:00:00Z",
+            "responsible": [
+                {
+                    "id": 2,
+                    "name": "Maria",
+                    "lastname": "Oliveira"
+                }
+            ],
+            "priority": "Média",
+            "finished": false
+        },
+        {
+            "id": 5,
+            "title": "Criar campanha de marketing",
+            "detail": "Desenvolver uma campanha de marketing para o novo produto.",
+            "deadline": "2024-10-10T12:00:00Z",
+            "responsible": [
+                {
+                    "id": 1,
+                    "name": "João",
+                    "lastname": "Silva"
+                }
+            ],
+            "priority": "Alta",
+            "finished": false
+        },
+        {
+            "id": 6,
+            "title": "Realizar pesquisa de mercado",
+            "detail": "Coletar dados sobre as preferências dos consumidores.",
+            "deadline": "2024-10-15T09:00:00Z",
+            "responsible": [
+                {
+                    "id": 2,
+                    "name": "Maria",
+                    "lastname": "Oliveira"
+                }
+            ],
+            "priority": "Média",
+            "finished": false
+        },
+        {
+            "id": 7,
+            "title": "Implementar feedback de clientes",
+            "detail": "Analisar e implementar o feedback recebido dos clientes.",
+            "deadline": "2024-10-20T13:00:00Z",
+            "responsible": [
+                {
+                    "id": 1,
+                    "name": "João",
+                    "lastname": "Silva"
+                }
+            ],
+            "priority": "Baixa",
+            "finished": false
+        },
+        {
+            "id": 8,
+            "title": "Preparar apresentação para diretoria",
+            "detail": "Criar uma apresentação sobre o desempenho do último trimestre.",
+            "deadline": "2024-10-25T11:00:00Z",
+            "responsible": [
+                {
+                    "id": 2,
+                    "name": "Maria",
+                    "lastname": "Oliveira"
+                }
+            ],
+            "priority": "Alta",
+            "finished": false
+        },
+        {
+            "id": 9,
+            "title": "Desenvolver novo produto",
+            "detail": "Trabalhar no desenvolvimento do novo produto para lançamento.",
+            "deadline": "2024-10-12T17:00:00Z",
+            "responsible": [
+                {
+                    "id": 1,
+                    "name": "João",
+                    "lastname": "Silva"
+                }
+            ],
+            "priority": "Alta",
+            "finished": false
+        },
+        {
+            "id": 10,
+            "title": "Atualizar documentação",
+            "detail": "Revisar e atualizar a documentação do projeto.",
+            "deadline": "2024-10-03T14:00:00Z",
+            "responsible": [
+                {
+                    "id": 2,
+                    "name": "Maria",
+                    "lastname": "Oliveira"
+                }
+            ],
+            "priority": "Baixa",
+            "finished": false
+        },
+        {
+            "id": 11,
+            "title": "Criar campanhas de e-mail",
+            "detail": "Desenvolver campanhas de e-mail marketing para clientes.",
+            "deadline": "2024-10-09T13:00:00Z",
+            "responsible": [
+                {
+                    "id": 1,
+                    "name": "João",
+                    "lastname": "Silva"
+                }
+            ],
+            "priority": "Média",
+            "finished": false
+        },
+        {
+            "id": 12,
+            "title": "Fazer análise SWOT",
+            "detail": "Realizar uma análise SWOT para a empresa.",
+            "deadline": "2024-10-11T12:00:00Z",
+            "responsible": [
+                {
+                    "id": 2,
+                    "name": "Maria",
+                    "lastname": "Oliveira"
+                }
+            ],
+            "priority": "Baixa",
+            "finished": false
+        },
+        {
+            "id": 13,
+            "title": "Revisar propostas de clientes",
+            "detail": "Analisar e revisar as propostas enviadas aos clientes.",
+            "deadline": "2024-10-15T16:00:00Z",
+            "responsible": [
+                {
+                    "id": 1,
+                    "name": "João",
+                    "lastname": "Silva"
+                }
+            ],
+            "priority": "Média",
+            "finished": false
+        },
+        {
+            "id": 14,
+            "title": "Ajustar orçamento",
+            "detail": "Revisar e ajustar o orçamento do projeto atual.",
+            "deadline": "2024-10-18T09:00:00Z",
+            "responsible": [
+                {
+                    "id": 2,
+                    "name": "Maria",
+                    "lastname": "Oliveira"
+                }
+            ],
+            "priority": "Alta",
+            "finished": false
+        },
+        {
+            "id": 15,
+            "title": "Analisar concorrência",
+            "detail": "Estudar a concorrência e preparar um relatório.",
+            "deadline": "2024-10-22T14:00:00Z",
+            "responsible": [
+                {
+                    "id": 1,
+                    "name": "João",
+                    "lastname": "Silva"
+                }
+            ],
+            "priority": "Baixa",
+            "finished": false
+        },
+        {
+            "id": 16,
+            "title": "Criar plano de marketing",
+            "detail": "Desenvolver um plano de marketing para o próximo semestre.",
+            "deadline": "2024-10-30T10:00:00Z",
+            "responsible": [
+                {
+                    "id": 2,
+                    "name": "Maria",
+                    "lastname": "Oliveira"
+                }
+            ],
+            "priority": "Alta",
+            "finished": false
+        },
+        {
+            "id": 17,
+            "title": "Feedback do cliente",
+            "detail": "Coletar feedback dos clientes sobre o último produto lançado.",
+            "deadline": "2024-10-28T15:00:00Z",
+            "responsible": [
+                {
+                    "id": 1,
+                    "name": "João",
+                    "lastname": "Silva"
+                }
+            ],
+            "priority": "Média",
+            "finished": false
+        },
+        {
+            "id": 18,
+            "title": "Treinamento de equipe",
+            "detail": "Organizar um treinamento para a equipe sobre novas ferramentas.",
+            "deadline": "2024-10-29T13:00:00Z",
+            "responsible": [
+                {
+                    "id": 2,
+                    "name": "Maria",
+                    "lastname": "Oliveira"
+                }
+            ],
+            "priority": "Baixa",
+            "finished": false
+        }
+    ]
+}

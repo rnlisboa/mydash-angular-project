@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "server": "json-server --watch src/db.json"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,7 @@
     "angular-crumbs": "^3.0.1",
     "angular-in-memory-web-api": "^0.18.0",
     "chart.js": "^4.4.4",
+    "json-server": "^1.0.0-beta.2",
     "lucide-angular": "^0.441.0",
     "mydash": "file:",
     "primeng": "^17.18.10",
