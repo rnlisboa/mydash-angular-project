@@ -1,4 +1,20 @@
-<section class="h-screen bg-[#F5F5F5]">
+<style>
+    .custom-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: #6261B4;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #6261B4;
+        border-radius: 10px;
+    }
+</style>
+
+<section class="h-[100%] overflow-scroll bg-[#F5F5F5] custom-scrollbar relative">
     <top-page />
     <header-layout [title]="'Olá, fábio'">
         <div slot-one>
@@ -6,70 +22,76 @@
         </div>
     </header-layout>
 
-  <div class="flex flex-col items-center justify-center px-[30px]">
-    <div class="task-indicator w-full flex items-center justify-between mt-8 h-auto flex-wrap ">
-        <div class="todo w-[330px] h-[140px] flex items-center justify-around bg-white rounded-[10px]">
-            <div class="indicator">
-                <div class="n-todo text-[34px] font-bold">
-                    4
+    <div class="flex flex-col items-center justify-center px-[30px]">
+        <div class="task-indicator w-full flex items-center justify-between mt-8 h-auto flex-wrap ">
+            <div class="todo w-[330px] h-[140px] flex items-center justify-around bg-white rounded-[10px]">
+                <div class="indicator">
+                    <div class="n-todo text-[34px] font-bold">
+                        4
+                    </div>
+                    <span class="font-bold">
+                        to do
+                    </span>
                 </div>
-                <span class="font-bold">
-                    to do
-                </span>
+                <div class="icon">
+                    <img src="assets/icons/loading 1.svg" alt="">
+                </div>
             </div>
-            <div class="icon">
-                <img src="assets/icons/loading 1.svg" alt="">
+            <div class="todo w-[330px] h-[140px] flex items-center justify-around bg-white rounded-[10px]">
+                <div class="indicator">
+                    <div class="n-todo text-[34px] font-bold">
+                        2
+                    </div>
+                    <span class="font-bold">
+                        doing
+                    </span>
+                </div>
+                <div class="icon">
+                    <img src="assets/icons/square-terminal 1.svg" alt="">
+                </div>
+            </div>
+            <div class="todo w-[330px] h-[140px] flex items-center justify-around bg-white rounded-[10px]">
+                <div class="indicator">
+                    <div class="n-todo text-[34px] font-bold">
+                        64
+                    </div>
+                    <span class="font-bold">
+                        done
+                    </span>
+                </div>
+                <div class="icon">
+                    <img src="assets/icons/checkbox 1.svg" alt="">
+                </div>
             </div>
         </div>
-        <div class="todo w-[330px] h-[140px] flex items-center justify-around bg-white rounded-[10px]">
-            <div class="indicator">
-                <div class="n-todo text-[34px] font-bold">
-                    2
+
+        <!-- TAREFAS POR DIA -->
+
+        <div class="p-10 mt-6 bg-white w-[100%] rounded-[10px]">
+            <h1 class="font-bold w-full"># Tarefas concluídas por dia</h1>
+            <button-selector>
+                <div slot-one>
+                    <span>Últimos 15 dias</span>
                 </div>
-                <span class="font-bold">
-                    doing
-                </span>
-            </div>
-            <div class="icon">
-                <img src="assets/icons/square-terminal 1.svg" alt="">
+                <div slot-two>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-calendar">
+                        <path d="M8 2v4" />
+                        <path d="M16 2v4" />
+                        <rect width="18" height="18" x="3" y="4" rx="2" />
+                        <path d="M3 10h18" />
+                    </svg>
+                </div>
+            </button-selector>
+
+            <div class="w-full h-[467px] max-h-[467px]">
+                <chart-line />
             </div>
         </div>
-        <div class="todo w-[330px] h-[140px] flex items-center justify-around bg-white rounded-[10px]">
-            <div class="indicator">
-                <div class="n-todo text-[34px] font-bold">
-                    64
-                </div>
-                <span class="font-bold">
-                    done
-                </span>
-            </div>
-            <div class="icon">
-                <img src="assets/icons/checkbox 1.svg" alt="">
-            </div>
-        </div>
+
     </div>
 
-    <!-- TAREFAS POR DIA -->
-
-    <div class="p-10 mt-6 bg-white w-[100%] rounded-[10px]">
-        <h1 class="font-bold w-full"># Tarefas concluídas por dia</h1>
-        <div class="mt-4 mb-4 float-right flex justify-evenly items-center h-[52px] w-[217px] border border-[#E8EEF0] rounded-[10px]">
-            <span>Últimos 15 dias</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-calendar">
-                <path d="M8 2v4" />
-                <path d="M16 2v4" />
-                <rect width="18" height="18" x="3" y="4" rx="2" />
-                <path d="M3 10h18" />
-            </svg>
-            
-        </div>
-        <div class="w-full h-[467px]">
-            <chart-line />
-        </div>
-    </div>
-
-  </div>
+    <modal/>
 
 </section>
