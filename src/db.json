@@ -6,7 +6,7 @@
       "lastname": "Silva",
       "email": "joao.silva@example.com",
       "password": "senha123",
-      "avatar": "https://example.com/avatars/joao.png"
+      "avatar": "assets/imgs/homem.jpg"
     },
     {
       "id": "2",
@@ -14,7 +14,7 @@
       "lastname": "Oliveira",
       "email": "maria.oliveira@example.com",
       "password": "senha456",
-      "avatar": "https://example.com/avatars/maria.png"
+      "avatar": "assets/imgs/mulher.jpg"
     }
   ],
   "tasks": [
