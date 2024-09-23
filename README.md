@@ -1,27 +1,50 @@
-# Mydash
+# My Dash
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
+<p>O projeto consiste em uma aplicação SPA que tem como objetivo o gerenciamento de tarefas por um usuário</p>
 
-## Development server
+## O que foi desenvolvido:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<ul>
+<li>a) Criar uma aplicação SPA utilizando Angular na versão mais recente.</li>
+<li>b) "In Memory DB" Apesar de ter tentando, a utilização da biblioteca não foi possível. Em vez disso, foi usado json-server para simular um backend</li>
+<li>c) A aplicação foi construida seguindo o design proposto</li>
+<li>d) Um controle de autenticação foi criado</li>
+<li>e) Uma tela adicional foi criada</li>
+<li>f) Testes unitários foram aplicados nas páginas</li>
+</ul>
 
-## Code scaffolding
+## Instruções para rodar a aplicação
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Instalar os pacotes
+```yarn install```
+ou 
+```npm install```
+### Iniciar o servidor mockado
+```yarn server```
+ou
+```npm run server```
 
-## Build
+### Iniciar a aplicação
+```yarn start```
+ou
+```npm run start```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Autenticação
+<h5>
+Usuário 1
+</h5>
+<ul>
+<li>email: joao.silva@example.com</li>
+<li>senha: senha123</li>
+</ul>
 
-## Running unit tests
+<h5>
+Usuário 2
+</h5>
+<ul>
+<li>email: maria.oliveira@example.com</li>
+<li>senha: senha456</li>
+</ul>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+<p>Versão do node: v20.11.1</p>
