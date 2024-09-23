@@ -9,7 +9,7 @@ import { UserModel } from "./model/user.model";
   })
   export class TaskService {
     private apiUrl = 'http://localhost:3000/tasks';
-    private userUrl = 'http://localhost:3000/users';  // Endpoint para buscar usuários
+    private userUrl = 'http://localhost:3000/users';
   
     constructor(private http: HttpClient) { }
   
@@ -23,6 +23,10 @@ import { UserModel } from "./model/user.model";
   
     createTask(task: TaskModel): Observable<TaskModel> {
       return this.http.post<TaskModel>(this.apiUrl, task);
+    }
+
+    getTaskById(taskId: number) {
+      return this.http.get<TaskModel>(`/api/tasks/${taskId}`);
     }
   }
   
