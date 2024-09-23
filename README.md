@@ -19,7 +19,7 @@
 ```yarn install```
 ou 
 ```npm install```
-### Iniciar o servidor mockado
+### Iniciar o servidor com dados mockados
 ```yarn server```
 ou
 ```npm run server```
