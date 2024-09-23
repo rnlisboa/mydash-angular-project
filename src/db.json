@@ -305,6 +305,15 @@
       "priority": "Baixa",
       "responsible": "João",
       "finished": false
+    },
+    {
+      "id": "a31e",
+      "title": "Nova tarefa",
+      "detail": "Detalhe da nova tarefa",
+      "deadline": "2024-09-27",
+      "priority": "Média",
+      "responsible": "João",
+      "finished": false
     }
   ]
 }
