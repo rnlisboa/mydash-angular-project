@@ -4,20 +4,25 @@ import { Dashboard } from './dashboard/dashboard.component';
 import { Task } from './task/task.component';
 import { SharedModule } from "../shared/shared.module";
 import { ChartLine } from "../shared/components/dashboard/chart/chat.component";
+import { Login } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     Dashboard,
-    Task
+    Task,
+    Login
   ],
   imports: [
     CommonModule,
     SharedModule,
-    ChartLine
+    ChartLine,
+    ReactiveFormsModule
 ],
   exports: [
     Dashboard,
-    Task
+    Task,
+    Login
   ]
 })
 export class PagesModule {}
