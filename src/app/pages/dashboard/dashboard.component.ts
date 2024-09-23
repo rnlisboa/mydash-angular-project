@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { TaskModel } from "../../core/services/api/model/task.model";
 import { TaskService } from "../../core/services/api/tasks.service";
+import { UserService } from "../../core/services/api/user.service";
+import { UserModel } from "../../core/services/api/model/user.model";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'dashboard',
@@ -13,12 +16,15 @@ export class Dashboard implements OnInit {
     doingTask!: number;
     taskList!: TaskModel[];
 
-    constructor(private service: TaskService) {
+    user!: UserModel;
+
+    constructor(private service: TaskService, private userService: UserService, private router: Router) {
 
     }
 
     ngOnInit(): void {
         this.loadTaskList();
+        this.getUser()
     }
 
     loadTaskList() {
@@ -28,7 +34,6 @@ export class Dashboard implements OnInit {
             this.doneTask = this.getDoneTask(this.taskList).length;
             this.doingTask = this.getDoingTask(this.taskList).length;
             this.lateTask = this.getLateTask(this.taskList).length;
-            console.log(this.taskList.length, this.todoTask, this.doneTask, this.doingTask, this.lateTask)
         }))
     }
 
@@ -46,5 +51,16 @@ export class Dashboard implements OnInit {
 
     getLateTask(taskList: TaskModel[]): TaskModel[] {
         return taskList.filter(t => !t.finished && new Date(t.deadline).getTime() <= new Date().getTime())
+    }
+
+    getUser(){
+        const email = localStorage.getItem("email");
+        if(email){
+            this.userService.getUserByEmail(email).subscribe(user => {
+                this.user = user;
+            })
+        } else {
+            this.router.navigate(['login']);
+        }
     }
 }

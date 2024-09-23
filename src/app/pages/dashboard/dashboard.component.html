@@ -15,8 +15,8 @@
 </style>
 
 <section class="h-[100%] overflow-scroll bg-[#F5F5F5] custom-scrollbar relative">
-    <top-page />
-    <header-layout [title]="'Olá, fábio'">
+    <top-page [avatar]="user.avatar" [nome]="user.name"/>
+    <header-layout [nome]="user.name">
         <div slot-one>
             Bem vindo(a) ao seu gestor de tarefas!
         </div>

@@ -6,7 +6,7 @@ import { ModalStateService } from "../../../../core/services/state/state-modal.s
     templateUrl: './header-layout.component.html'
 })
 export class HeaderLayout {
-    @Input() title!: string;
+    @Input() nome!: string;
 
     constructor(private modalStateService: ModalStateService) { }
 

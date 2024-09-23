@@ -1,6 +1,6 @@
 <section class="relative bg-[#F5F5F5] h-[100%]">
-    <top-page />
-    <header-layout [title]="'Tarefas'">
+    <top-page [avatar]="user.avatar" [nome]="user.name"/>
+    <header-layout [nome]="user.name">
         <div slot-one>
             Dashboard > Tarefas
         </div>

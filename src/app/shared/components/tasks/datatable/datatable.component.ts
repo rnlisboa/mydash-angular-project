@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../../../core/services/api/tasks.service';
 import { TaskModel } from '../../../../core/services/api/model/task.model';
+import { ModalStateService } from '../../../../core/services/state/state-modal.service';
 
 @Component({
   selector: 'app-datatable',
@@ -11,10 +12,10 @@ export class DatatableComponent implements OnInit {
   paginatedTasks!: TaskModel[];
   currentPage: number = 1;
   itemsPerPage: number = 5;
-  isTitleSortedAsc: boolean = true; // Variável para controlar a ordenação
+  isTitleSortedAsc: boolean = true;
   Math = Math;
 
-  constructor(private service: TaskService) {}
+  constructor(private service: TaskService, private modalStateService: ModalStateService) {}
 
   ngOnInit(): void {
     try {
@@ -78,4 +79,8 @@ export class DatatableComponent implements OnInit {
  
     this.updatePaginatedTasks();
   }
+
+  openTaskModal() {
+    this.modalStateService.openModal();
+}
 }
